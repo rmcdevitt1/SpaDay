@@ -73,8 +73,50 @@ body {
 
 /*Nail Colors*/
 
+
+
 .purple {
-    color: purple;
-    width: 100px;
-    height: 100px;
+    display: inline-block;
+    width: 125px;
+    height: 125px;
+    background-color: #301934;
+}
+
+.green {
+    display: inline-block;
+    width: 125px;
+    height: 125px;
+    background-color: #006400;
+}
+
+.black {
+    display: inline-block;
+    width: 125px;
+    height: 125px;
+    background-color: #000000;
+}
+
+.orange {
+    display: inline-block;
+    width: 125px;
+    height: 125px;
+    background-color: #CC5500;
+}
+
+.pink {
+    display: inline-block;
+    width: 125px;
+    height: 125px;
+    background-color: #e0218a;
+}
+
+.mytext {
+    position: relative;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
 }
