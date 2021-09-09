@@ -41,14 +41,12 @@ namespace SpaDay.Controllers
         }
 
         [HttpPost]
-        [Route("/spa")]
+        [Route("/spa/submission")]
         public IActionResult Menu(string name, string skintype, string manipedi)
         {
-
             ViewBag.Name = name;
             ViewBag.Nails = manipedi;
             ViewBag.Skin = skintype;
-            
 
             List<string> facials = new List<string>()
             {
@@ -67,7 +65,7 @@ namespace SpaDay.Controllers
             }
 
             return View();
-
+           
         }
 
 
