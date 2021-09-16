@@ -8,5 +8,9 @@
 
   <ItemGroup>
     <Folder Include="Views\Spa\" />
+    <Folder Include="Views\User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\User\" />
   </ItemGroup>
 </Project>

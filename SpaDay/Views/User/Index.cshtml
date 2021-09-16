@@ -1,0 +1,12 @@
+﻿<h1>Welcome to the Spa, @ViewBag.username!</h1>
+
+@*add an a element to take the user back to the path, /spa, where the Spa/Index.cshtml template will be rendered.*@
+<p>
+    <a asp-controller="Spa" asp-action="Index">Select Spa Services</a>
+</p>
+
+@*BONUS#2: Inside a div, add account details such as the user’s email and the date they joined.*@
+<div>
+    <p>Email: @ViewBag.email</p>
+    @*<p>Member Since: @ViewBag.date</p>*@
+</div>

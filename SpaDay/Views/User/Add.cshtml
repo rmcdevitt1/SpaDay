@@ -1,0 +1,23 @@
+﻿<h1>Spa Form Submission</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input name="username" type="text" value="@ViewBag.username" />
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input name="email" type="email" value="@ViewBag.email" />
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input name="password" type="password" />
+    </div>
+    <div class="form-group">
+        <label for="verify">Confirm Password</label>
+        <input name="verify" type="password" />
+    </div>
+    <p color="red">@ViewBag.error</p>
+    <input type="submit" value="Submit" />
+</form>
+
