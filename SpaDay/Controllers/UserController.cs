@@ -9,9 +9,6 @@ namespace SpaDay.Controllers
 {
     public class UserController : Controller
     {
-        public UserController()
-        {
-        }
 
         [HttpGet]
         [Route("/user/add")]
@@ -24,6 +21,7 @@ namespace SpaDay.Controllers
         [Route("user/add")]
         public IActionResult SubmitAddUserForm(User newUser, string verify)
         {
+            ViewBag.dateJoined = newUser.DateJoined;
             // add form submission handling code here
             if (newUser.Password == verify)
             {
