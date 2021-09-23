@@ -28,35 +28,19 @@ namespace SpaDay.Controllers
         [Route("/user")]
         public IActionResult SubmitAddUserForm(AddUserViewModel addUserViewModel)
         {
-
-            //check that the value of Password is equal to VerifyPassword.
-            //If it is, we can create an instance of User and pass it to the User/Index.cshtml view.
-            //If the two passwords do not match, we need to reload the form with an error message displayed.
             if (ModelState.IsValid)
             {
 
-                if (addUserViewModel.Password == addUserViewModel.VerifyPassword)
+                User newUser = new User
                 {
-                    User newUser = new User
-                    {
-                        Username = addUserViewModel.Username,
-                        Email = addUserViewModel.Email,
-                        Password = addUserViewModel.Password,
-                        VerifyPassword = addUserViewModel.VerifyPassword
+                    Username = addUserViewModel.Username,
+                    Email = addUserViewModel.Email,
+                    Password = addUserViewModel.Password
+                };
+                return View("Index", newUser);
+            }
+            return View("Add", addUserViewModel);
 
-                    };
-                    return View("Index", newUser);
-                }
-                else
-                {
-                    return View("add");
-                }
-            }
-            else
-            {
-                //return View(addUserViewModel);
-                return View("add", addUserViewModel);
-            }
 
         }
 
