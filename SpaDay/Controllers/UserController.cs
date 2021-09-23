@@ -54,8 +54,8 @@ namespace SpaDay.Controllers
             }
             else
             {
-                return View(addUserViewModel);
-                //or is it this way?: return View("add", addUserViewModel);//
+                //return View(addUserViewModel);
+                return View("add", addUserViewModel);
             }
 
         }
