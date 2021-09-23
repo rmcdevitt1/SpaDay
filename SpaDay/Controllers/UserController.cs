@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SpaDay.Models;
+using SpaDay.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -19,25 +20,44 @@ namespace SpaDay.Controllers
 
         public IActionResult Add()
         {
-            return View();
+            AddUserViewModel addUserViewModel = new AddUserViewModel();
+            return View(addUserViewModel);
         }
 
         [HttpPost]
         [Route("/user")]
-        public IActionResult SubmitAddUserForm(User newUser, string verify)
+        public IActionResult SubmitAddUserForm(AddUserViewModel addUserViewModel)
         {
-            if (newUser.Password == verify)
+
+            //check that the value of Password is equal to VerifyPassword.
+            //If it is, we can create an instance of User and pass it to the User/Index.cshtml view.
+            //If the two passwords do not match, we need to reload the form with an error message displayed.
+            if (ModelState.IsValid)
             {
-                ViewBag.user = newUser;
-                return View("Index");
+
+                if (addUserViewModel.Password == addUserViewModel.VerifyPassword)
+                {
+                    User newUser = new User
+                    {
+                        Username = addUserViewModel.Username,
+                        Email = addUserViewModel.Email,
+                        Password = addUserViewModel.Password,
+                        VerifyPassword = addUserViewModel.VerifyPassword
+
+                    };
+                    return View("Index", newUser);
+                }
+                else
+                {
+                    return View("add");
+                }
             }
             else
             {
-                ViewBag.error = "Passwords do not match! Try again!";
-                ViewBag.userName = newUser.Username;
-                ViewBag.eMail = newUser.Email;
-                return View("Add");
+                return View(addUserViewModel);
+                //or is it this way?: return View("add", addUserViewModel);//
             }
+
         }
 
     }
